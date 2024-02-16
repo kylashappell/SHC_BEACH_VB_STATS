@@ -1,0 +1,117 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Center the text horizontally and vertically */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #ecf0f3; /* Slightly lighter background */
+}
+
+/* Style the header */
+header {
+    position: relative; /* Relative positioning for icon */
+    text-align: center;
+    margin-bottom: 20px; /* Add some space below the header */
+}
+
+
+.icon-home {
+    margin-bottom: 20px; /* Add space below the icon */
+    width: 100px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Style the header */
+header {
+    position: relative; /* Relative positioning for the header */
+    text-align: center;
+    margin-bottom: 20px; /* Add some space below the header */
+}
+
+header h1 {
+    font-size: 32px; /* Larger font size */
+    color: #6a0dad; /* Deep purple color */
+    font-weight: bold; /* Make the text bold */
+    margin-left: 40px; /* Add space to the left of the title */
+}
+
+.back-button {
+    position: absolute; /* Position the back button */
+    top: 50%; /* Align vertically in the middle */
+    left: 10px; /* Adjust as needed */
+    transform: translateY(-50%); /* Center vertically */
+    width: 25px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.icon-home-else {
+    margin-right: 10px; /* Add some space between the icon and the title */
+    vertical-align: middle; /* Align the icon vertically with the title */
+    width: 25px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+/* Style the button group */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Style the phone container */
+.phone-container {
+    border: 1px solid #ccc; /* Add a border around the phone */
+    padding: 20px; /* Add some padding inside the phone */
+    width: 360px; /* Set the maximum width of the phone */
+    height: 800px; /* Set the maximum height of the phone */
+    margin: 0 auto; /* Center the phone horizontally */
+    overflow: auto; /* Add vertical scrollbars if content overflows */
+}
+
+
+/* Style the app title */
+.app-title {
+    font-size: 32px; /* Font size for the title */
+    color: #6a0dad; /* Deep purple color */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 0px; /* Add space at the top */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+/* Style the page title */
+.page-title {
+    font-size: 24px; /* Font size for the title */
+    color: #000; /* Black text color */
+    margin-bottom: 25px; /* Add some space below the title */
+}
+
+.button-group button {
+    margin: 5px 0; /* Adjust space between buttons */
+    padding: 15px 40px; /* Adjust padding for smaller buttons */
+    background-color: #ead5ff; /* Slightly lighter purple background */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px; /* Larger font size for buttons */
+    width: 100%; /* Make all buttons the same width */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More noticeable shadow effect */
+    font-weight: bold; /* Make button text bold */
+    white-space: nowrap; /* Ensure text remains on a single line */
+}

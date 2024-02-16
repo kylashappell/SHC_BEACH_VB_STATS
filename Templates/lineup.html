@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* CSS styles for the dropdown element */
+        select {
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
+            -moz-appearance: none; /* Remove default arrow in Firefox */
+            background: white; /* Set background color */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23424242' d='M6 8L0 0h12'/%3E%3C/svg%3E"); /* Add custom arrow */
+            background-position: right 5px top 50%; /* Position the arrow */
+            background-repeat: no-repeat; /* Prevent arrow from repeating */
+            background-size: 10px; /* Set size of the arrow */
+            padding-right: 10px; /* Adjust padding for arrow */
+            font-size: 18px; /* Adjust the font size */
+            text-align: center; /* Center the text horizontally */
+            width: 200px; /* Set the width of the input field */
+            margin: 0 auto; /* Center the input field horizontally */
+            color: black; /* Change text color to black */
+            text-align-last: center; /* Center the text in the dropdown options */
+            border: 1px solid black; /* Add a black border */
+            border-radius: 0; /* Make the edges non-rounded */
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <h1 class="app-title">SHC BEACH VB</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <form method="post" action="{{ url_for('delete_last_game_entry', game_id=game_id) }}">
+                <button type="submit" class="invisible-button">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+                </button>
+            </form>
+            <img src="{{ url_for('static', filename='user-input-box.png') }}" alt="" class="user-input-box6">
+        </header>
+        <div class="input-container2">
+            <h1 class="page-title3">LINEUP</h1>
+            <form method="POST" action="{{ url_for('lineup', game_id=game_id, player_options=player_options) }}">
+                <!-- Dropdown option (pair 1)-->
+                <label for="player1-dropdown">Pair #1:</label>
+                <select id="player1-dropdown" name="pair1player1">
+                    <option value="" disabled selected>Player 1</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <select id="player2-dropdown" name="pair1player2">
+                    <option value="" disabled selected>Player 2</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <!-- Dropdown option (pair 2)-->
+                <label for="player21-dropdown">Pair #2:</label>
+                <select id="player21-dropdown" name="pair2player1">
+                    <option value="" disabled selected>Player 1</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <select id="player22-dropdown" name="pair2player2">
+                    <option value="" disabled selected>Player 2</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <!-- Dropdown option (pair 3)-->
+                <label for="player31-dropdown">Pair #3:</label>
+                <select id="player31-dropdown" name="pair3player1">
+                    <option value="" disabled selected>Player 1</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <select id="player32-dropdown" name="pair3player2">
+                    <option value="" disabled selected>Player 2</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <!-- Dropdown option (pair 4)-->
+                <label for="player41-dropdown">Pair #4:</label>
+                <select id="player41-dropdown" name="pair4player1">
+                    <option value="" disabled selected>Player 1</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <select id="player42-dropdown" name="pair4player2">
+                    <option value="" disabled selected>Player 2</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <!-- Dropdown option (pair 5)-->
+                <label for="player51-dropdown">Pair #5:</label>
+                <select id="player51-dropdown" name="pair5player1">
+                    <option value="" disabled selected>Player 1</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+
+                </select>
+                <select id="player52-dropdown" name="pair5player2">
+                    <option value="" disabled selected>Player 2</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
+                <div class="button-group5">
+                    <button type="submit">DONE</button>
+                </div>
+            </form>
+        </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button-group button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>

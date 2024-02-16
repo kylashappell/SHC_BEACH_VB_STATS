@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+        <header>
+            <h1 class="app-title3">SHC BEACH VB STATS</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="/stats">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+        </header>
+    <div class="stats-container">
+        <div class="total-attempts-container">
+            <h5> {{ player }} - {{ game }} - {{ category }}</h5>
+            <br> <!-- Add line break for extra spacing -->
+            <p><span style="color: #666666;">Total Attempts: {{ total_attempts }}</span></p>
+        </div>
+        {% if results %}
+
+        <h5><span style="color: #666666;">{{ category }} TYPES</span></h5>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td>{{ row[category + '_TYPE'] }}</td>
+                    <td>{{ row.TOTAL_TYPE }}</td>
+                    <td>{{ row.PERCENTAGE }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h5><span style="color: #666666;">{{ category }} RESULTS</span></h5>
+        <table class="stats-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results2 %}
+                <tr>
+                    <td>{{ row.RESULT }}</td>
+                    <td>{{ row.TOTAL_RESULT }}</td>
+                    <td>{{ row.PERCENTAGE }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+
+        {% if results3 %}
+            <h5><span style="color: #666666;">{{ category }} ERRORS</span></h5>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Total</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in results3 %}
+                    <tr>
+                        <td>{{ row.ERROR_TYPE }}</td>
+                        <td>{{ row.ERR }}</td>
+                        <td>{{ row.PERCENTAGE }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>

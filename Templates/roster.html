@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* CSS styles for the specific table */
+        table.smaller-table {
+            width: 150px; /* Set the width of the table */
+            height: 600px;
+            border-collapse: collapse; /* Collapse the borders into a single border */
+            border: 1px solid #666666; /* Add a border to the table */
+        }
+
+        table.smaller-table th, table.smaller-table td {
+            text-align: center; /* Align text to the left */
+            border: 1px solid #ccc; /* Add a border to the table cells */
+            padding: 2px; /* Adjust the padding */
+        }
+
+        table.smaller-table th {
+            background-color: #ffffff; /* Set background color for table header */
+        }
+
+        /* Reduce font size for table content */
+        table.smaller-table, table.smaller-table th, table.smaller-table td {
+            font-size: 10px;
+        }
+        .table-container3 {
+            height: 450px; /* Set the desired height */
+            overflow-y: auto; /* Enable vertical scrolling */
+    </style>
+</head>
+<body>
+        <header>
+            <h1 class="app-title">SHC BEACH VB</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+        </header>
+        <div class="button-group5">
+            <!-- home.html -->
+            <a href="player-info">
+                <button id="button1">ADD PLAYER</button>
+            </a>
+        </div>
+        <h5><span style="font-size: 24px; color: #666666;">ROSTER</span></h5>
+        <div class="table-container3">
+            <table class="smaller-table">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>NUMBER</th>
+                        <th>YEAR</th>
+                        <th>CITY</th>
+                        <th>STATE</th>
+                        <th>HEIGHT</th>
+                        <th>POSITION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in results %}
+                    <tr>
+                        <td>{{ row.NAME }}</td>
+                        <td>{{ row.PLAYER_ID }}</td>
+                        <td>{{ row.YEAR }}</td>
+                        <td>{{ row.HOME_CITY }}</td>
+                        <td>{{ row.HOME_STATE }}</td>
+                        <td>{{ row.HEIGHT }}</td>
+                        <td>{{ row.POSITION }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <br> <!-- Add line break for extra spacing -->
+        <h5><span style="font-size: 15px; color: #666666;">(scroll)</span></h5>
+</body>
+</html>

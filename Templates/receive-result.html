@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .custom-position3 {
+            position: fixed;
+            top: 60px;
+            left: 115px;
+        }
+    </style>
+    <style>
+        .custom-position4 {
+            position: fixed;
+            top: 60px;
+            right: 115px;
+        }
+    </style>
+    <style>
+        .custom-position5 {
+            position: fixed;
+            top: 60px;
+            right: 195px;
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <h1 class="app-title2">SHC VS. {{ game_id }}</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="{{ url_for('receive_side', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, receive_id=receive_id) }}">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+        </header>
+        <div class="container">
+            <h1 class="page-title">RECEIVE RESULT?</h1>
+            <div class="button-group">
+                <button id="button1" onclick="receiveResult('IN PLAY')">IN PLAY</button>
+                <button id="button2" onclick="receiveResult('ERROR')">ERROR</button>
+            </div>
+            <form id="receive-result-form" method="POST" action="{{ url_for('receive_result', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, receive_id=receive_id) }}">
+                <input type="hidden" name="receive_result" id="receive-result-input">
+            </form>
+            <script>
+                function receiveResult(result) {
+                    document.getElementById('receive-result-input').value = result;
+                    document.getElementById('receive-result-form').submit();
+                }
+            </script>
+        </div>
+    </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button-group button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>

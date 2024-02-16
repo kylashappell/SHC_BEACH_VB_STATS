@@ -1,0 +1,655 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Center the text horizontally and vertically */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #ecf0f3; /* Slightly lighter background */
+}
+
+/* Style the header */
+header {
+    position: absolute;
+    top: 0; /* Position at the top */
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+header h1 {
+    font-size: 32px; /* Larger font size */
+    color: #6a0dad; /* Deep purple color */
+    font-weight: bold; /* Make the text bold */
+    margin-left: 40px; /* Add space to the left of the title */
+    margin-right: 40px; /* Add space to the left of the title */
+}
+
+
+/* Style the header */
+header2 {
+    position: relative; /* Relative positioning for icon */
+    text-align: center;
+}
+
+header2 h1 {
+    font-size: 32px; /* Larger font size */
+    color: #6a0dad; /* Deep purple color */
+    font-weight: bold; /* Make the text bold */
+    margin-left: 40px; /* Add space to the left of the title */
+    margin-right: 40px; /* Add space to the right of the title */
+    margin-top: 0; /* Remove any top margin */
+    margin-bottom: 25px;
+}
+
+.icon-home {
+    margin-bottom: 20px; /* Add space below the icon */
+    width: 100px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 40px; /* Add margin to the top of the icon */
+}
+
+
+
+.icon-home-else {
+    margin-left: 10px; /* Add some space between the icon and the title */
+    vertical-align: middle; /* Align the icon vertically with the title */
+    position: absolute; /* Position the icon */
+    top: 5px; /* Align the icon to the top */
+    right: 5px; /* Align the icon to the right */
+    width: 50px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.back-button {
+    margin-right: 10px; /* Add some space between the icon and the title */
+    vertical-align: middle; /* Align the icon vertically with the title */
+    position: absolute; /* Position the icon */
+    top: 7px; /* Align the icon to the top */
+    left: 0; /* Align the icon to the left */
+    width: 60px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.undo {
+    margin-right: 10px; /* Add some space between the icon and the title */
+    position: fixed; /* Position the icon */
+    bottom: 20px; /* Align the icon to the bottom */
+    left: 20px; /* Align the icon to the left */
+    width: 45px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.redo {
+    margin-left: 10px; /* Add some space between the icon and the title */
+    position: fixed; /* Position the icon */
+    bottom: 20px; /* Align the icon to the bottom */
+    right: 20px; /* Align the icon to the right */
+    width: 45px; /* Adjust the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.user-input-box {
+    position: fixed; /* Position the icon */
+    bottom: 47px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 245px; /* Adjust the width of the icon */
+    height: 481px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
+.user-input-box2 {
+    position: fixed; /* Position the icon */
+    bottom: 46px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 230px; /* Adjust the width of the icon */
+    height: 498px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
+.user-input-box3 {
+    position: fixed; /* Position the icon */
+    bottom: 135px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 245px; /* Adjust the width of the icon */
+    height: 307px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
+.user-input-box4 {
+    position: fixed; /* Position the icon */
+    bottom: 90px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 245px; /* Adjust the width of the icon */
+    height: 400px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
+.user-input-box5 {
+    position: fixed; /* Position the icon */
+    bottom: 145px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 245px; /* Adjust the width of the icon */
+    height: 295px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
+.user-input-box6 {
+    position: fixed; /* Position the icon */
+    bottom: 110px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 340px; /* Adjust the width of the icon */
+    height: 360px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
+.user-input-box7 {
+    position: fixed; /* Position the icon */
+    bottom: 160px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 245px; /* Adjust the width of the icon */
+    height: 250px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
+.text {
+    color: #666; /* Dark grey color */
+    font-size: 15px; /* Small text size */
+    font-weight: bold; /* Make the text bold */
+}
+
+
+.text2 {
+    color: #666; /* Dark grey color */
+    font-size: 20px; /* Small text size */
+    font-weight: bold; /* Make the text bold */
+}
+
+
+/* Style the app title */
+.app-title {
+    font-size: 32px; /* Font size for the title */
+    color: #6a0dad; /* Deep purple color */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 23px; /* Add space at the top */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+
+/* Style the app title */
+.app-title2 {
+    font-size: 32px; /* Font size for the title */
+    color: #000; /* Black text color */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 23px; /* Add space at the top */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+
+.invisible-button {
+    border: none;
+    background: none;
+    outline: none;
+    width: 0;
+    height: 0;
+}
+
+
+/* Style the app title */
+.app-title3 {
+    font-size: 22px; /* Font size for the title */
+    color: #6a0dad; /* Black text color */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 23px; /* Add space at the top */
+    margin-bottom: 30px; /* Add some space below the title */
+}
+
+/* Style the page title */
+.page-title {
+    font-size: 24px; /* Font size for the title */
+    color: #000; /* Black text color */
+    margin-bottom: 25px; /* Add some space below the title */
+    text-align: center; /* Center the text horizontally */
+}
+
+
+/* Style the page title */
+.page-title2 {
+    font-size: 20px; /* Font size for the title */
+    color: #6a0dad; /* Purple text color */
+    margin-top: 30px; /* Add some space above the title */
+    margin-bottom: 10px; /* Add some space below the title */
+    text-align: center; /* Center the text horizontally */
+}
+
+
+/* Style the page title */
+.page-title3 {
+    font-size: 22px; /* Font size for the title */
+    color: #000; /* Purple text color */
+    margin-top: 30px; /* Add some space above the title */
+    margin-bottom: 10px; /* Add some space below the title */
+    text-align: center; /* Center the text horizontally */
+}
+
+
+/* Style the page title */
+.page-title6 {
+    font-size: 25px; /* Font size for the title */
+    color: #6a0dad; /* Purple text color */
+    margin-top: 30px; /* Add some space above the title */
+    margin-bottom: 20px; /* Add some space below the title */
+    padding-top: 40px;
+    text-align: center; /* Center the text horizontally */
+}
+
+
+/* Center the container horizontally and vertically */
+.container {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+
+/* Style the page title */
+.page-title4 {
+    font-size: 18px; /* Font size for the title */
+    color: #000; /* Purple text color */
+    margin-bottom: 10px; /* Add some space below the title */
+    text-align: center; /* Center the text horizontally */
+    margin-top: 0; /* Add this line to remove any top margin */
+    padding-top: 120px; /* Add some padding at the top to create space */
+}
+
+
+/* Style the page title */
+.page-title5 {
+    font-size: 15px; /* Font size for the title */
+    color: #000; /* Purple text color */
+    margin-bottom: 10px; /* Add some space below the title */
+    text-align: center; /* Center the text horizontally */
+    margin-top: 0; /* Add this line to remove any top margin */
+    padding-top: 120px; /* Add some padding at the top to create space */
+}
+
+
+/* Center the table horizontally and vertically */
+.table-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    margin: 0 auto; /* This will center the div horizontally */
+    width: 80%; /* Adjust the width as needed */
+}
+
+
+.stats-container {
+    text-align: center; /* Center the content horizontally */
+}
+
+.total-attempts-container {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px; /* Add some space below the total attempts */
+}
+
+.stats-table {
+    margin: 0 auto; /* Center the table horizontally */
+    margin-bottom: 15px;
+}
+
+
+/* Center the table horizontally and vertically */
+.table-container2 {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    margin: 0 auto; /* This will center the div horizontally */
+    width: 80%; /* Adjust the width as needed */
+}
+
+
+.stats-container2 {
+    text-align: center; /* Center the content horizontally */
+}
+
+.total-attempts-container2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px; /* Add some space below the total attempts */
+}
+
+.stats-table2 {
+    margin: 0 auto; /* Center the table horizontally */
+    margin-bottom: 90%;
+}
+
+
+/* CSS for table */
+table {
+    font-size: 12px;
+    text-align: center; /* Center-align the table content */
+    border-collapse: collapse; /* Collapse the borders into a single border */
+    width: 100%; /* Set table width to 100% */
+    background-color: #ffffff;
+}
+th, td {
+    border: 1px solid #666666; /* Add a 1px solid black border to all table cells */
+    padding: 5px; /* Add padding to the cells for better readability */
+    text-align: center; /* Align text to the left */
+}
+
+
+/* CSS for table */
+table2 {
+    font-size: 12px;
+    text-align: center; /* Center-align the table content */
+    border-collapse: collapse; /* Collapse the borders into a single border */
+    width: 100%; /* Set table width to 100% */
+    background-color: #ffffff;
+}
+th2, td2 {
+    border: 1px solid black; /* Add a 1px solid black border to all table cells */
+    padding: 5px; /* Add padding to the cells for better readability */
+    text-align: center; /* Align text to the left */
+}
+
+
+/* Style the button group */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button-group button {
+    margin: 5px 0; /* Adjust space between buttons */
+    padding: 15px 40px; /* Adjust padding for smaller buttons */
+    background-color: #ead5ff; /* Slightly lighter purple background */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px; /* Larger font size for buttons */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More noticeable shadow effect */
+    font-weight: bold; /* Make button text bold */
+    white-space: nowrap; /* Ensure text remains on a single line */
+}
+
+
+/* Style the button group */
+.button-group2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button-group2 button {
+    margin: 5px 0; /* Adjust space between buttons */
+    padding: 15px 40px; /* Adjust padding for smaller buttons */
+    background-color: #ead5ff; /* Slightly lighter purple background */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px; /* Larger font size for buttons */
+    width: 100%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More noticeable shadow effect */
+    font-weight: bold; /* Make button text bold */
+    white-space: nowrap; /* Ensure text remains on a single line */
+}
+
+
+/* Style the button group */
+.button-group3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button-group3 button {
+    margin: 5px 0; /* Adjust space between buttons */
+    padding: 6px 40px; /* Adjust padding for smaller buttons */
+    background-color: #ead5ff; /* Slightly lighter purple background */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px; /* Larger font size for buttons */
+    width: 100%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More noticeable shadow effect */
+    font-weight: bold; /* Make button text bold */
+    white-space: nowrap; /* Ensure text remains on a single line */
+}
+
+
+/* Style the button group */
+.button-group4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button-group4 button {
+    margin: 5px 0; /* Adjust space between buttons */
+    padding: 6px 40px; /* Adjust padding for smaller buttons */
+    background-color: #baa0d8; /* Slightly lighter purple background */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px; /* Larger font size for buttons */
+    width: 240px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More noticeable shadow effect */
+    font-weight: bold; /* Make button text bold */
+    white-space: nowrap; /* Ensure text remains on a single line */
+}
+
+
+/* Style the button group */
+.button-group5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button-group5 button {
+    position: fixed;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 5px 0; /* Adjust space between buttons */
+    padding: 3px 40px; /* Adjust padding for smaller buttons */
+    background-color: #ead5ff; /* Slightly lighter purple background */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px; /* Larger font size for buttons */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More noticeable shadow effect */
+    font-weight: bold; /* Make button text bold */
+    white-space: nowrap; /* Ensure text remains on a single line */
+}
+
+
+/* Style the button group */
+.button-group6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button-group6 button {
+    position: fixed;
+    top: 55px;
+    left: 33%;
+    margin: 5px 0; /* Adjust space between buttons */
+    padding: 5px 10px; /* Adjust padding for smaller buttons */
+    background-color: #ead5ff; /* Slightly lighter purple background */
+    color: #000; /* Black text color */
+    border: 1px solid #000; /* Thin black border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Larger font size for buttons */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* More noticeable shadow effect */
+    font-weight: bold; /* Make button text bold */
+    white-space: nowrap; /* Ensure text remains on a single line */
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed */
+}
+
+
+.input-container label {
+    display: block; /* Ensure each label is on its own line */
+    text-align: center; /* Center align the labels */
+    font-weight: bold; /* Make the text bold */
+    font-size: 20px; /* Larger font size */
+    margin-bottom: 5px; /* Add spacing below each label */
+    margin-top: 10px; /* Add spacing below each label */
+}
+
+.input-container input,
+.input-container select {
+    width: 200px; /* Adjust the width of input fields */
+    height: 50px; /* Adjust the height of input fields */
+    margin-bottom: 5px; /* Add spacing between input fields */
+}
+
+
+.input-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed */
+}
+
+
+.input-container2 label {
+    display: block; /* Ensure each label is on its own line */
+    text-align: center; /* Center align the labels */
+    font-weight: bold; /* Make the text bold */
+    font-size: 20px; /* Larger font size */
+    margin-bottom: 5px; /* Add spacing below each label */
+    margin-top: 10px; /* Add spacing below each label */
+}
+
+.input-container2 input,
+.input-container2 select {
+    width: 150px; /* Adjust the width of input fields */
+    height: 25px; /* Adjust the height of input fields */
+    margin-bottom: 5px; /* Add spacing between input fields */
+}
+
+
+.input-container3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed */
+}
+
+
+.input-container3 label {
+    display: block; /* Ensure each label is on its own line */
+    text-align: center; /* Center align the labels */
+    font-weight: bold; /* Make the text bold */
+    font-size: 20px; /* Larger font size */
+    margin-bottom: 5px; /* Add spacing below each label */
+    margin-top: 10px; /* Add spacing below each label */
+}
+
+.input-container3 input,
+.input-container3 select {
+    width: 200px; /* Adjust the width of input fields */
+    height: 35px; /* Adjust the height of input fields */
+    margin-bottom: 5px; /* Add spacing between input fields */
+}
+
+
+.input-container4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed */
+}
+
+
+.input-container4 label {
+    display: block; /* Ensure each label is on its own line */
+    text-align: center; /* Center align the labels */
+    font-weight: bold; /* Make the text bold */
+    font-size: 15px; /* Larger font size */
+    margin-bottom: 5px; /* Add spacing below each label */
+    margin-top: 10px; /* Add spacing below each label */
+}
+
+.input-container4 input,
+.input-container4 select {
+    width: 200px; /* Adjust the width of input fields */
+    height: 30px; /* Adjust the height of input fields */
+    margin-bottom: 5px; /* Add spacing between input fields */
+}
+
+
+select::placeholder {
+    color: #444; /* Set placeholder text color to grey */
+}
+
+
+@media only screen and (max-width: 600px) {
+    /* CSS rules for smaller screens */
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+        <header>
+            <h1 class="app-title2">SHC VS. {{ game_name }}</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="/take-stats">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+        </header>
+        <div class="container">
+            <h1 class="page-title">HAS START INFO BEEN ENTERED?</h1>
+            <div class="button-group">
+                <a href="{{ url_for('which_player', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id) }}">
+                    <button id="button1">Yes, it has been entered</button>
+                </a>
+                <a href="{{ url_for('start_info', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id) }}">
+                    <button id="button2">No, I need to enter it</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button-group button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>

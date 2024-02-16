@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header2>
+            <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home">
+            <h1>SHC BEACH VB</h1>
+        </header2>
+        <div class="button-group">
+            <!-- home.html -->
+            <a href="what-do-you-want-to-do">
+                <button id="button1">NEW GAME</button>
+            </a>
+            <a href="take-stats">
+                <button id="button2">RESUME GAME</button>
+            </a>
+            <a href="roster">
+                <button id="button3">ROSTER</button>
+            </a>
+            <a href="stats">
+                <button id="button4">STATS</button>
+            </a>
+        </div>
+    </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button-group button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .custom-position3 {
+            position: fixed;
+            top: 60px;
+            left: 115px;
+        }
+    </style>
+    <style>
+        .custom-position4 {
+            position: fixed;
+            top: 60px;
+            right: 115px;
+        }
+    </style>
+    <style>
+        .custom-position5 {
+            position: fixed;
+            top: 60px;
+            right: 195px;
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <h1 class="app-title2">SHC VS. {{ game_id }}</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="{{ url_for('stats_taking', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id) }}">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+        </header>
+        <div class="container">
+            <h1 class="page-title">SERVE TYPE?</h1>
+            <div class="button-group">
+                <button id="button1" onclick="setWhichType('STANDING')">STANDING</button>
+                <button id="button2" onclick="setWhichType('JUMP TOP')">JUMP TOP</button>
+                <button id="button3" onclick="setWhichType('JUMP FLOAT')">JUMP FLOAT</button>
+            </div>
+            <form id="serve-form" method="POST" action="{{ url_for('serve_type', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, serve_id=serve_id, shc_points=shc_points, opp_points=opp_points) }}">
+                <input type="hidden" name="serve_type" id="serve-type-input">
+            </form>
+            <script>
+                function setWhichType(type) {
+                    document.getElementById('serve-type-input').value = type;
+                    document.getElementById('serve-form').submit();
+                }
+            </script>
+        </div>
+    </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button-group button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>
