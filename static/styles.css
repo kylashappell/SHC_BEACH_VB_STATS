@@ -183,6 +183,17 @@ header2 h1 {
 }
 
 
+.user-input-box8 {
+    position: fixed; /* Position the icon */
+    bottom: 70px; /* Align the icon to the bottom */
+    left: 50%; /* Move the icon to the center horizontally */
+    transform: translateX(-50%); /* Adjust for the width of the icon */
+    width: 340px; /* Adjust the width of the icon */
+    height: 440px; /* Maintain aspect ratio */
+    z-index: -1;
+}
+
+
 .text {
     color: #666; /* Dark grey color */
     font-size: 15px; /* Small text size */
