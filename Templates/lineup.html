@@ -115,6 +115,21 @@
                         <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
                     {% endfor %}
                 </select>
+                <!-- Dropdown option (pair 6)-->
+                <label for="player61-dropdown">Pair #6:</label>
+                <select id="player61-dropdown" name="pair6player1">
+                    <option value="" disabled selected>Player 1</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+
+                </select>
+                <select id="player62-dropdown" name="pair6player2">
+                    <option value="" disabled selected>Player 2</option>
+                    {% for player in player_options %}
+                        <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
+                    {% endfor %}
+                </select>
                 <div class="button-group5">
                     <button type="submit">DONE</button>
                 </div>
