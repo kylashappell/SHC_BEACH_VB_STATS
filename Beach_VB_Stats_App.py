@@ -96,8 +96,7 @@ def stats_taking(game_id, pair_number, game_id_actual, set_number, set_number_id
                            (game_id_actual, set_number, player_id, 'ph', 'ph'))
             db.commit()
             # Retrieve the last inserted row's SERVE_ID
-            cursor.execute("SELECT last_insert_rowid()")
-            serve_id = cursor.fetchone()[0]
+            serve_id = cursor.lastrowid
             return redirect(url_for('serve_type', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, serve_id=serve_id))  # Redirect to webpage.html
             # Check if the RECEIVE button was clicked
         elif 'RECEIVE' in request.form:
@@ -108,8 +107,7 @@ def stats_taking(game_id, pair_number, game_id_actual, set_number, set_number_id
                            (game_id_actual, set_number, player_id, 'ph', 'ph'))
             db.commit()
             # Retrieve the last inserted row's RECEIVE_ID
-            cursor.execute("SELECT last_insert_rowid()")
-            receive_id = cursor.fetchone()[0]
+            receive_id = cursor.lastrowid
             return redirect(url_for('receive_side', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, receive_id=receive_id))  # Redirect to webpage.html
         elif 'DIG' in request.form:
             # Insert new row into DIG table in the database
@@ -119,8 +117,7 @@ def stats_taking(game_id, pair_number, game_id_actual, set_number, set_number_id
                            (game_id_actual, set_number, player_id, 'ph', 'ph'))
             db.commit()
             # Retrieve the last inserted row's DIG_ID
-            cursor.execute("SELECT last_insert_rowid()")
-            dig_id = cursor.fetchone()[0]
+            dig_id = cursor.lastrowid
             return redirect(url_for('dig_type', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, dig_id=dig_id))  # Redirect to webpage.html
         elif 'SET' in request.form:
             # Insert new row into SET table in the database
@@ -130,8 +127,7 @@ def stats_taking(game_id, pair_number, game_id_actual, set_number, set_number_id
                            (game_id_actual, set_number, player_id, 'ph', 'ph'))
             db.commit()
             # Retrieve the last inserted row's SETTING_ID
-            cursor.execute("SELECT last_insert_rowid()")
-            setting_id = cursor.fetchone()[0]
+            setting_id = cursor.lastrowid
             return redirect(url_for('set_type', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, setting_id=setting_id))  # Redirect to webpage.html
         elif 'ATTACK' in request.form:
             # Insert new row into ATTACK table in the database
@@ -141,8 +137,7 @@ def stats_taking(game_id, pair_number, game_id_actual, set_number, set_number_id
                            (game_id_actual, set_number, player_id, 'ph', 'ph'))
             db.commit()
             # Retrieve the last inserted row's ATTACK_ID
-            cursor.execute("SELECT last_insert_rowid()")
-            attack_id = cursor.fetchone()[0]
+            attack_id = cursor.lastrowid
             return redirect(url_for('attack_type', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, attack_id=attack_id))  # Redirect to webpage.html
         elif 'BLOCK' in request.form:
             # Insert new row into BLOCK table in the database
@@ -152,8 +147,7 @@ def stats_taking(game_id, pair_number, game_id_actual, set_number, set_number_id
                            (game_id_actual, set_number, player_id, 'ph', 'ph'))
             db.commit()
             # Retrieve the last inserted row's BLOCK_ID
-            cursor.execute("SELECT last_insert_rowid()")
-            block_id = cursor.fetchone()[0]
+            block_id = cursor.lastrowid
             return redirect(url_for('block_type', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, block_id=block_id))  # Redirect to webpage.html
         elif 'TIME-OUT' in request.form:
             # Insert new row into BLOCK table in the database
@@ -163,12 +157,12 @@ def stats_taking(game_id, pair_number, game_id_actual, set_number, set_number_id
                            (game_id_actual, set_number, pair_number, 'timeout', 'ph', 'ph', 'ph', 'ph'))
             db.commit()
             # Retrieve the last inserted row's BREAK_ID
-            cursor.execute("SELECT last_insert_rowid()")
-            break_id = cursor.fetchone()[0]
+            break_id = cursor.lastrowid
             return redirect(url_for('who_called_time_out', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, break_id=break_id))  # Redirect to webpage.html
         elif 'SET FINISHED' in request.form:
             return redirect(url_for('end_info', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id))  # Redirect to webpage.html
     return render_template('stats-taking.html', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, shc_points=shc_points, opp_points=opp_points)
+
 
 
 # Define route for end-info page
@@ -523,8 +517,7 @@ def game_info():
                        (date_input, tournament, city, state, opponent))
         db.commit()
         # Retrieve the last inserted row's GAME_ID
-        cursor.execute("SELECT last_insert_rowid()")
-        game_id_actual = cursor.fetchone()[0]
+        game_id_actual = cursor.lastrowid
         return redirect(url_for('lineup', game_id=game_id_actual))  # Redirect to webpage.html
     return render_template('game-info.html')
 
@@ -621,8 +614,7 @@ def take_stats():
              'ph', 'ph'))
         db.commit()
         # Retrieve the last inserted row's GAME_ID
-        cursor.execute("SELECT last_insert_rowid()")
-        set_info_id = cursor.fetchone()[0]
+        set_info_id = cursor.lastrowid
         return redirect(url_for('has_start_info_been_entered', game_id=selected_game_id, pair_number=selected_pair_number, game_id_actual=selected_game_id_actual, set_number=selected_set_number, set_number_id=set_info_id))
     # Fetch the necessary data to populate the dropdown dynamically
     db = get_db()
