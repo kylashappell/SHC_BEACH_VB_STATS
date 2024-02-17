@@ -488,14 +488,33 @@ def block_result(game_id, pair_number, game_id_actual, set_number, set_number_id
 @app.route('/who-called-time-out/<game_id>/<pair_number>/<game_id_actual>/<set_number>/<set_number_id>/<player_name>/<player_id>/<break_id>', methods=['GET', 'POST'])
 def who_called_time_out(game_id, pair_number, game_id_actual, set_number, set_number_id, player_name, player_id, break_id):
     if request.method == 'POST':
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("""
+                           SELECT COUNT(*) AS POINTS
+                                , SCORING_TEAM
+                           FROM POINT
+                           WHERE GAME_ID = {}
+                             AND SET_NUMBER = {}
+                             AND PAIR_NUMBER = {}
+                             AND PLAYER_ID = {}
+                           GROUP BY SCORING_TEAM
+                           """.format(game_id_actual, set_number, pair_number, player_id))
+        rows = cursor.fetchall()
+        shc_points = 0
+        opp_points = 0
+        for row in rows:
+            # Check the scoring team and update the corresponding variable
+            if row[1] == 'SHC':  # Assuming SCORING_TEAM is the second column in the query result
+                shc_points = row[0]  # Assuming POINTS is the first column in the query result
+            else:
+                opp_points = row[0]  # Assuming POINTS is the first column in the query result
         # Retrieve values from the form submitted by the user
-        who_called_to = request.form['who_called_time_out']
-        shc_score = request.form['shc_score']
-        opponent_score = request.form['opponent_score']
+        who_called_to = request.form['who-called-time-out']
         db = get_db()
         cursor = db.cursor()
         cursor.execute("UPDATE BREAK SET SHC_SCORE=?, OPPONENT_SCORE=?, WIND=?, CALLED_BY=? WHERE BREAK_ID=?",
-                       (shc_score, opponent_score, 'ph', who_called_to, break_id))
+                       (shc_points, opp_points, 'ph', who_called_to, break_id))
         db.commit()
         return redirect(url_for('stats_taking', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id))  # Redirect to webpage.html
     return render_template('who-called-time-out.html', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, break_id=break_id)
