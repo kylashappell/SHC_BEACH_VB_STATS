@@ -57,6 +57,7 @@
                 <label for="player">Player:</label>
                 <select id="player" name="player">
                     <option value="" disabled selected>Click for dropdown</option>
+                    <option value="" disabled>Select a player</option>
                     <option value="ALL PLAYERS">ALL PLAYERS</option>
                     {% for player in player_options %}
                         <option value="{{ player[0] }}/{{ player[1] }}">{{ player[0] }}</option>
@@ -66,6 +67,7 @@
                 <label for="match">Game:</label>
                 <select id="match" name="match">
                     <option value="" disabled selected>Click for dropdown</option>
+                    <option value="" disabled>Select a game</option>
                     <option value="ALL GAMES">ALL GAMES</option>
                     {% for game in game_options %}
                         <option value="{{ game[0] }}/{{ game[1] }}/{{ game[2] }}">{{ game[0] }} {{ game[1] }}</option>
@@ -75,6 +77,7 @@
                 <label for="category">Category:</label>
                 <select id="category" name="category">
                     <option value="" disabled selected>Click for dropdown</option>
+                    <option value="" disabled>Select a category</option>
                     <option>SERVE</option>
                     <option>RECEIVE</option>
                     <option>DIG</option>
