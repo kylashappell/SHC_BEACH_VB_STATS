@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = 'icdattCwsmP413'
 #----------------------------------
 # this section is for setting up and connecting my SQLite database
 
-DATABASE = "C:/Users/Lenovo/Documents/SHC Beach VB Stats/Python/SHC Beach VB Stats/SHC_Beach_VB_Stats.db"
+DATABASE = "/home/shcbeachvbstats/Documents/SHC Beach VB Stats/Python/SHC Beach VB Stats/SHC_Beach_VB_Stats.db"
 
 def get_db():
     db = getattr(g, '_database', None)
