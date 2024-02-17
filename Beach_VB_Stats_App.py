@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = 'icdattCwsmP413'
 #----------------------------------
 # this section is for setting up and connecting my SQLite database
 
-DATABASE = "C:/Users/Lenovo/Documents/SHC Beach VB Stats/SHC_Beach_VB_Stats.db"
+DATABASE = "C:/Users/Lenovo/Documents/SHC Beach VB Stats/Python/SHC Beach VB Stats/SHC_Beach_VB_Stats.db"
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -935,4 +935,4 @@ def minus_opp_point(game_id, pair_number, game_id_actual, set_number, set_number
 #----------------------------------
 # don't delete or edit this section
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", debug=False)
