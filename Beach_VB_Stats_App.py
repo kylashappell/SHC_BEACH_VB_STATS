@@ -9,7 +9,11 @@ app.config['SECRET_KEY'] = 'icdattCwsmP413'
 #----------------------------------
 # this section is for setting up and connecting my SQLite database
 
-DATABASE = "/home/shcbeachvbstats/Documents/SHC Beach VB Stats/Python/SHC Beach VB Stats/SHC_Beach_VB_Stats.db"
+# Get the directory of the current script file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the database file path
+DATABASE = os.path.join(current_dir, 'SHC_Beach_VB_Stats.db')
 
 def get_db():
     db = getattr(g, '_database', None)
