@@ -565,6 +565,8 @@ def lineup(game_id):
         pair4player2 = request.form['pair4player2'].split('/')[1]
         pair5player1 = request.form['pair5player1'].split('/')[1]
         pair5player2 = request.form['pair5player2'].split('/')[1]
+        pair6player1 = request.form['pair6player1'].split('/')[1]
+        pair6player2 = request.form['pair6player2'].split('/')[1]
         db = get_db()
         cursor = db.cursor()
         cursor.execute("INSERT INTO LINEUP (GAME_ID, PAIR_NUMBER, PLAYER_1_ID, PLAYER_2_ID) VALUES (?, ?, ?, ?)",
@@ -577,6 +579,8 @@ def lineup(game_id):
                        (game_id, 4, pair4player1, pair4player2))
         cursor.execute("INSERT INTO LINEUP (GAME_ID, PAIR_NUMBER, PLAYER_1_ID, PLAYER_2_ID) VALUES (?, ?, ?, ?)",
                        (game_id, 5, pair5player1, pair5player2))
+        cursor.execute("INSERT INTO LINEUP (GAME_ID, PAIR_NUMBER, PLAYER_1_ID, PLAYER_2_ID) VALUES (?, ?, ?, ?)",
+                       (game_id, 6, pair6player1, pair6player2))
         db.commit()
         db.close()
         return redirect(url_for('home'))  # Redirect to webpage.html
