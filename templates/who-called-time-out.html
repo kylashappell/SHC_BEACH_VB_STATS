@@ -69,33 +69,30 @@
             <a href="{{ url_for('stats_taking', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id) }}">
                     <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
             </a>
-            <img src="{{ url_for('static', filename='user-input-box.png') }}" alt="" class="user-input-box7">
         </header>
         <div class="input-container3">
-            <h1 class="page-title3">TIME-OUT</h1>
+            <h1 class="page-title3">WHO CALLED TIME-OUT?</h1>
             <form method="POST" action="{{ url_for('who_called_time_out', game_id=game_id, pair_number=pair_number,  game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, break_id=break_id) }}">
-
-                <!-- Dropdown option (set-winner)-->
-                <label for="who-called-to">Time-out called by:</label>
-                <select id="who-called-to" name="who_called_time_out">
-                    <option value="" disabled selected>Click for dropdown</option>
-                    <option>SHC</option>
-                    <option>{{ game_id }}</option>
-                    <option>TECHNICAL</option>
-                </select>
-
-                <!-- User input box (shc-score)-->
-                <label for="shc-score">SHC Score:</label>
-                <input type="text" id="shc-score" name="shc_score" placeholder="Enter text here">
-
-                <!-- User input box (opp-score)-->
-                <label for="opp-score">{{ game_id }} Score:</label>
-                <input type="text" id="opp-score" name="opponent_score" placeholder="Enter text here">
-
-                <div class="button-group5">
-                    <button type="submit">DONE</button>
+                <input type="hidden" name="who-called-time-out" value="SHC">
+                <div class="button-group">
+                    <button type="submit">SHC</button>
                 </div>
             </form>
+
+            <form method="POST" action="{{ url_for('who_called_time_out', game_id=game_id, pair_number=pair_number,  game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, break_id=break_id) }}">
+                <input type="hidden" name="who-called-time-out" value="{{ game_id }}">
+                <div class="button-group">
+                    <button type="submit">{{ game_id }}</button>
+                </div>
+            </form>
+
+            <form method="POST" action="{{ url_for('who_called_time_out', game_id=game_id, pair_number=pair_number,  game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, break_id=break_id) }}">
+                <input type="hidden" name="who-called-time-out" value="TECHNICAL">
+                <div class="button-group">
+                    <button type="submit">TECHNICAL</button>
+                </div>
+            </form>
+
         </div>
     <script>
         // Select all buttons
