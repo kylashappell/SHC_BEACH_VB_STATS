@@ -57,6 +57,7 @@
                 <label for="which-game">Which Game?</label>
                 <select id="which-game" name="game_id">
                     <option value="" disabled selected>Click for dropdown</option>
+                    <option value="" disabled>Select a game</option>
                     {% for game in game_options %}
                         <option value="{{ game[0] }}/{{ game[1] }}/{{ game[2] }}">{{ game[0] }} {{ game[1] }}</option>
                     {% endfor %}
@@ -65,6 +66,7 @@
                 <label for="which-pair">Which Pair?</label>
                 <select id="which-pair" name="pair_number">
                     <option value="" disabled selected>Click for dropdown</option>
+                    <option value="" disabled>Select a pair</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -75,6 +77,7 @@
                 <label for="which-set">Which Set?</label>
                 <select id="which-set" name="set_number">
                     <option value="" disabled selected>Click for dropdown</option>
+                    <option value="" disabled>Select a set</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
