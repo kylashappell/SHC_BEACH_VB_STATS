@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* CSS styles for the input element */
+        input[type="text"], input[type="time"] {
+            font-size: 15px; /* Adjust the font size */
+            background: white; /* Set background color */
+            text-align: center; /* Center the text horizontally */
+            width: 200px; /* Set the width of the input field */
+            margin: 0 auto; /* Center the input field horizontally */
+            color: black; /* Change text color to black */
+            border: 1px solid black; /* Add a black border */
+            border-radius: 0; /* Make the edges non-rounded */
+        }
+        /* CSS styles for the dropdown element */
+        select {
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
+            -moz-appearance: none; /* Remove default arrow in Firefox */
+            background: white; /* Set background color */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23424242' d='M6 8L0 0h12'/%3E%3C/svg%3E"); /* Add custom arrow */
+            background-position: right 5px top 50%; /* Position the arrow */
+            background-repeat: no-repeat; /* Prevent arrow from repeating */
+            background-size: 10px; /* Set size of the arrow */
+            padding-right: 10px; /* Adjust padding for arrow */
+            font-size: 15px; /* Adjust the font size */
+            text-align: center; /* Center the text horizontally */
+            width: 200px; /* Set the width of the input field */
+            margin: 0 auto; /* Center the input field horizontally */
+            color: black; /* Change text color to black */
+            text-align-last: center; /* Center the text in the dropdown options */
+            border: 1px solid black; /* Add a black border */
+            border-radius: 0; /* Make the edges non-rounded */
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <h1 class="app-title">SHC BEACH VB</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="/roster">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+            <img src="{{ url_for('static', filename='user-input-box.png') }}" alt="" class="user-input-box">
+        </header>
+        <div class="input-container4">
+            <h1 class="page-title3">PLAYER INFORMATION</h1>
+            <form method="POST" action="{{ url_for('player_info') }}">
+                <!-- User input box (player-name)-->
+                <label for="player-name">Full Name:</label>
+                <input type="text" id="player-name" name="player_name" placeholder="Enter text here">
+                <!-- User input box (player #)-->
+                <label for="player#">Jersey #:</label>
+                <input type="text" id="player#" name="player_id" placeholder="Enter text here">
+                <!-- Dropdown option (year)-->
+                <label for="year">Year:</label>
+                <select id="year" name="year">
+                    <option value="">Click for dropdown</option>
+                    <option>Freshman</option>
+                    <option>Sophomore</option>
+                    <option>Junior</option>
+                    <option>Senior</option>
+                    <option>5th Year+</option>
+                </select>
+                <!-- User input box (city)-->
+                <label for="city">Home City:</label>
+                <input type="text" id="city" name="city" placeholder="Enter text here">
+                <!-- Dropdown option (state)-->
+                <label for="state-dropdown">Home State:</label>
+                <select id="state-dropdown" name="state">
+                    <option value="">Click for dropdown</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option><option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+                <label for="height">Height:</label>
+                <select id="height" name="height">
+                    <option value="">Click for dropdown</option>
+                    <option><5'0</option>
+                    <option>5'0</option>
+                    <option>5'1</option>
+                    <option>5'2</option>
+                    <option>5'3</option>
+                    <option>5'4</option>
+                    <option>5'5</option>
+                    <option>5'6</option>
+                    <option>5'7</option>
+                    <option>5'8</option>
+                    <option>5'9</option>
+                    <option>5'10</option>
+                    <option>5'11</option>
+                    <option>6'0</option>
+                    <option>6'1</option>
+                    <option>6'2</option>
+                    <option>6'3</option>
+                    <option>6'4</option>
+                    <option>6'5+</option>
+                </select>
+                <label for="position">Position:</label>
+                <select id="position" name="position">
+                    <option value="">Click for dropdown</option>
+                    <option>Blocker</option>
+                    <option>Defender</option>
+                    <option>Split</option>
+                </select>
+                <div class="button-group5">
+                    <button type="submit">DONE</button>
+                </div>
+            </form>
+        </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button
+        -group button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>

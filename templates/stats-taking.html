@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .custom-position {
+            position: fixed;
+            bottom: 5px;
+            left: 20px;
+        }
+    </style>
+    <style>
+        .custom-position2 {
+            position: fixed;
+            bottom: 5px;
+            right: 20px;
+        }
+    </style>
+    <style>
+        .custom-position3 {
+            font-size: 30px;
+            position: fixed;
+            top: 60px;
+            left: 115px;
+        }
+    </style>
+    <style>
+        .custom-position4 {
+            font-size: 30px;
+            position: fixed;
+            top: 60px;
+            right: 115px;
+        }
+    </style>
+    <style>
+        .custom-position5 {
+            font-size: 30px;
+            position: fixed;
+            top: 60px;
+            right: 195px;
+        }
+    </style>
+    <style>
+        .custom-position6 {
+            position: fixed;
+            font-size: 35px;
+            top: 80px;
+            left: 90px;
+        }
+    </style>
+    <style>
+        .custom-position7 {
+            position: fixed;
+            font-size: 35px;
+            top: 80px;
+            right: 133px;
+        }
+    </style>
+    <style>
+        .custom-position8 {
+            position: fixed;
+            font-size: 35px;
+            top: 81px;
+            left: 135px;
+        }
+    </style>
+    <style>
+        .custom-position9 {
+            position: fixed;
+            font-size: 35px;
+            top: 81px;
+            right: 96px;
+        }
+    </style>
+    <style>
+        .transparent-button {
+            background-color: transparent; /* Set the background color to transparent */
+            border: none; /* Remove the border */
+            cursor: pointer; /* Set cursor to pointer for better user interaction */
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <h1 class="app-title2">SHC VS. {{ game_id }}</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="{{ url_for('which_player', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_names=player_names) }}">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+        </header>
+        <br> <!-- Add line break for extra spacing -->
+        <br> <!-- Add line break for extra spacing -->
+        <div class="container">
+            <h1 class="page-title6">{{ player_name }} - Set {{ set_number }}</h1>
+            <div class="button-group3">
+                <form method="post">
+                    <button id="button1" type="submit" name="SERVE">SERVE</button>
+                </form>
+                <form method="post">
+                    <button id="button2" type="submit" name="RECEIVE">RECEIVE</button>
+                </form>
+                <form method="post">
+                    <button id="button3" type="submit" name="DIG">DIG</button>
+                </form>
+                <form method="post">
+                    <button id="button4" type="submit" name="SET">SET</button>
+                </form>
+                <form method="post">
+                    <button id="button5" type="submit" name="ATTACK">ATTACK</button>
+                </form>
+                <form method="post">
+                    <button id="button6" type="submit" name="BLOCK">BLOCK</button>
+                </form>
+            </div>
+            <div class="button-group4">
+                <form method="post">
+                    <button id="button8" type="submit" name="TIME-OUT">TIME-OUT</button>
+                </form>
+                <form method="post">
+                    <button id="button9" type="submit" name="SET FINISHED">SET FINISHED</button>
+                </form>
+            </div>
+            <p class="text2 custom-position3">{{ shc_points }}</p>
+            <p class="text2 custom-position4">{{ opp_points }}</p>
+            <p class="text2 custom-position5">-</p>
+            <form method="POST" action="{{ url_for('add_shc_point', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, shc_points=shc_points, opp_points=opp_points) }}">
+                <button type="submit" class="transparent-button text2 custom-position6">+</button>
+            </form>
+            <form method="POST" action="{{ url_for('add_opp_point', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, shc_points=shc_points, opp_points=opp_points) }}">
+                <button type="submit" class="transparent-button text2 custom-position7">+</button>
+            </form>
+            <form method="POST" action="{{ url_for('minus_shc_point', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, shc_points=shc_points, opp_points=opp_points) }}">
+                <button type="submit" class="transparent-button text2 custom-position8">-</button>
+            </form>
+            <form method="POST" action="{{ url_for('minus_opp_point', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, shc_points=shc_points, opp_points=opp_points) }}">
+                <button type="submit" class="transparent-button text2 custom-position9">-</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button-group3 button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>

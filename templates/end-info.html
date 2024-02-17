@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHC BEACH VB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* CSS styles for the input element */
+        input[type="text"], input[type="time"] {
+            font-size: 17px; /* Adjust the font size */
+            background: white; /* Set background color */
+            text-align: center; /* Center the text horizontally */
+            width: 200px; /* Set the width of the input field */
+            margin: 0 auto; /* Center the input field horizontally */
+            color: black; /* Change text color to black */
+            border: 1px solid black; /* Add a black border */
+            border-radius: 0; /* Make the edges non-rounded */
+        }
+        /* CSS styles for the dropdown element */
+        select {
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
+            -moz-appearance: none; /* Remove default arrow in Firefox */
+            background: white; /* Set background color */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23424242' d='M6 8L0 0h12'/%3E%3C/svg%3E"); /* Add custom arrow */
+            background-position: right 5px top 50%; /* Position the arrow */
+            background-repeat: no-repeat; /* Prevent arrow from repeating */
+            background-size: 10px; /* Set size of the arrow */
+            padding-right: 10px; /* Adjust padding for arrow */
+            font-size: 17px; /* Adjust the font size */
+            text-align: center; /* Center the text horizontally */
+            width: 200px; /* Set the width of the input field */
+            margin: 0 auto; /* Center the input field horizontally */
+            color: black; /* Change text color to black */
+            text-align-last: center; /* Center the text in the dropdown options */
+            border: 1px solid black; /* Add a black border */
+            border-radius: 0; /* Make the edges non-rounded */
+        }
+    </style>
+</head>
+<body>
+        <header>
+            <h1 class="app-title2">SHC VS. {{ game_id }}</h1>
+            <a href="/home">
+                    <img src="{{ url_for('static', filename='home-icon.png') }}" alt="Home Icon" class="icon-home-else">
+            </a>
+            <a href="{{ url_for('stats_taking', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id) }}">
+                    <img src="{{ url_for('static', filename='back-button.png') }}" alt="Back" class="back-button">
+            </a>
+            <img src="{{ url_for('static', filename='user-input-box.png') }}" alt="" class="user-input-box4">
+        </header>
+        <div class="input-container3">
+            <h1 class="page-title3">END INFORMATION</h1>
+            <form method="POST" action="{{ url_for('end_info', game_id=game_id, pair_number=pair_number,  game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id) }}">
+                <!-- User input box (shc-score)-->
+                <label for="shc-score">SHC Score:</label>
+                <input type="text" id="shc-score" name="shc_score" placeholder="Enter text here">
+                <!-- User input box (opp-score)-->
+                <label for="opp-score">{{ game_id }} Score:</label>
+                <input type="text" id="opp-score" name="opponent_score" placeholder="Enter text here">
+                <!-- Dropdown option (set-winner)-->
+                <label for="set-winner">Set Winner:</label>
+                <select id="set-winner" name="set_winner">
+                    <option value="" disabled selected>Click for dropdown</option>
+                    <option>SHC</option>
+                    <option>{{ game_id }}</option>
+                </select>
+                <!-- Dropdown option (match-winner)-->
+                <label for="match-winner">Match Winner:</label>
+                <select id="match-winner" name="match_winner">
+                    <option value="" disabled selected>Click for dropdown</option>
+                    <option>SHC</option>
+                    <option>{{ game_id }}</option>
+                    <option>Match not finished</option>
+                </select>
+                <!-- User input box (start time)-->
+                <label for="end-time">End Time:</label>
+                <input type="time" id="end-time" name="end_time">
+                <div class="button-group5">
+                    <button type="submit">DONE</button>
+                </div>
+            </form>
+        </div>
+    <script>
+        // Select all buttons
+        const buttons = document.querySelectorAll('.button-group button');
+
+        // Get the width of the button with the longest text
+        let maxWidth = 0;
+        buttons.forEach(button => {
+            const width = button.getBoundingClientRect().width;
+            maxWidth = Math.max(maxWidth, width);
+        });
+
+        // Set the width of all buttons to match the width of the button with the longest text
+        buttons.forEach(button => {
+            button.style.width = `${maxWidth}px`;
+        });
+    </script>
+</body>
+</html>
