@@ -42,6 +42,7 @@
             <div class="button-group">
                 <button id="button1" onclick="attackResult('IN PLAY')">IN PLAY</button>
                 <button id="button2" onclick="attackResult('KILL')">KILL</button>
+                <button id="button2" onclick="attackResult('FIRST BALL KILL')">FIRST BALL KILL</button>
                 <button id="button3" onclick="attackResult('ERROR')">ERROR</button>
             </div>
             <form id="attack-result-form" method="POST" action="{{ url_for('attack_result', game_id=game_id, pair_number=pair_number, game_id_actual=game_id_actual, set_number=set_number, set_number_id=set_number_id, player_name=player_name, player_id=player_id, attack_id=attack_id) }}">
